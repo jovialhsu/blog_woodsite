@@ -2,15 +2,16 @@ import React from "react"
 import { graphql,Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from '../components/seo'
-import "gitalk/dist/gitalk.css";
-import GitalkComponent from "gitalk/dist/gitalk-component";
 
-
+const Gitalk= React.lazy(() =>
+  import("../components/GitalkComponent")
+)
 export default function Template({
     data, // this prop will be injected by the GraphQL query below.
 }) {
     const { markdownRemark } = data // data.markdownRemark holds your post data
-    const { frontmatter, html } = markdownRemark
+    const { frontmatter, html } = markdownRemark;
+    const isSSR = typeof window === "undefined"
     return (
         <Layout>
             <SEO
@@ -27,21 +28,12 @@ export default function Template({
                     />
                 </div>
           <Link to="/">Go back to the homepage</Link>
-          
+          {!isSSR && (
+        <React.Suspense fallback={<div />}>
+          <Gitalk />
+        </React.Suspense>
+      )}
             </div>
-            <GitalkComponent options={{
-            clientID: "0c28bd9cbdc37c78447a",
-            clientSecret: "4578277a67f11d095507b93cc44e07c92bdf65d6",
-            repo: "blog_woodsite",
-            owner: "jovialhsu",
-            admin: ["jovialhsu"],
-            createIssueManually:true,
-            id:`${frontmatter.slug}`,
-            title:`${frontmatter.slug}`,
-            body:`${frontmatter.title}`,
-            // ...
-            // options below
-          }} />
         </Layout>
 
     )
