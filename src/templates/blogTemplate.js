@@ -36,6 +36,8 @@ export default function Template({
             owner: "jovialhsu",
             admin: ["jovialhsu"],
             createIssueManually:true,
+            id:,
+            title:,
             // ...
             // options below
           }} />
