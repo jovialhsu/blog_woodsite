@@ -2,24 +2,27 @@ import React from "react"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
+
 import SEO from "../components/seo"
 import PostLink from "../components/postLink"
-import { graphql } from 'gatsby'
+import { graphql } from "gatsby"
 
 const IndexPage = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }) => (
-    <Layout>
-      <SEO title="Home" />
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
-      <h1>文章一覽</h1>
-      {edges.map(edge => <PostLink key={edge.node.id} post={edge.node} />)}
-    </Layout>
-  )
+  <Layout>
+    <SEO title="Home" />
+    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+      <Image />
+    </div>
+    <h1>文章一覽</h1>
+    {edges.map(edge => (
+      <PostLink key={edge.node.id} post={edge.node} />
+    ))}
+  </Layout>
+)
 
 export default IndexPage
 

@@ -9,14 +9,15 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
-     {
+    `gatsby-plugin-styled-components`,
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
     },
-     {
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-pages`,

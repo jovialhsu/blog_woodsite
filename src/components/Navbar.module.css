@@ -1,0 +1,16 @@
+.link{
+    border-bottom: 1px solid darkslategrey;
+    transition: all 0.3s;
+    padding: 0.25em 1em;
+}
+.link:hover{
+     text-decoration: none;
+     background-color: dimgray;
+     color:#fff;
+}
+.nav{
+    display: flex;
+}
+.nav li{
+    margin: 0.5em;
+}
