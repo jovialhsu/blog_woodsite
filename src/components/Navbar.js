@@ -1,26 +1,26 @@
 import React from "react"
 import { Link } from "gatsby"
+import { FaBars } from "react-icons/fa"
 import styles from "./Navbar.module.css"
-const Navbar = () => {
+import Links from "../constants/links"
+import SocialLinks from "../constants/socialLinks"
+const Navbar = ({ siteTitle, toggle }) => {
   return (
-    <nav>
-      <ul className={styles.nav}>
-        <li>
-          <Link className={styles.link} to="/">
-            Home
+    <nav className={styles.nav}>
+      <div className={styles.navCenter}>
+        <div className={styles.navHeader}>
+          <Link to="/" className={styles.navLogo}>
+            <span role="img" aria-label="logo-wood">
+              {siteTitle}🌳
+            </span>
           </Link>
-        </li>
-        <li>
-          <Link className={styles.link} to="/tags">
-            標籤
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} to="/contact">
-            Contact
-          </Link>
-        </li>
-      </ul>
+          <button className={styles.toggleBtn} onClick={toggle}>
+            <FaBars />
+          </button>
+        </div>
+        <Links styleClass={styles.navLinks} />
+        <SocialLinks styleClass={styles.navIcons} />
+      </div>
     </nav>
   )
 }
