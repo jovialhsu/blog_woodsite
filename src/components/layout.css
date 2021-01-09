@@ -704,3 +704,19 @@ sidebar
   font-size: 3rem;
   cursor: pointer;
 }
+.images {
+  text-align: center;
+  text-transform: capitalize;
+  width: 80vw;
+  margin: 0 auto 10rem auto;
+}
+.single-image {
+  padding: 1rem 0;
+}
+@media screen and (min-width: 992px) {
+  .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+}
