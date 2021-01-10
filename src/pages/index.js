@@ -5,11 +5,12 @@ import Image from "../components/image"
 
 import SEO from "../components/seo"
 import PostLink from "../components/postLink"
+import Posts from "../components/Posts"
 import { graphql } from "gatsby"
 
 const IndexPage = ({
   data: {
-    allMarkdownRemark: { edges },
+    allMarkdownRemark: { edges: posts },
   },
 }) => (
   <Layout>
@@ -18,9 +19,10 @@ const IndexPage = ({
       <Image />
     </div>
     <h1>文章一覽</h1>
-    {edges.map(edge => (
+    {/* {edges.map(edge => (
       <PostLink key={edge.node.id} post={edge.node} />
-    ))}
+    ))} */}
+    <Posts posts={posts} title="文章一覽" />
   </Layout>
 )
 

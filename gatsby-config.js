@@ -1,6 +1,8 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const capitalize = require(`remark-capitalize`)
+const emoji = require(`remark-emoji`)
 module.exports = {
   siteMetadata: {
     title: `Blog Woodsite`,
@@ -9,10 +11,18 @@ module.exports = {
     siteUrl: `https://woodsite.netlify.app`,
   },
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        remarkPlugins: [capitalize, emoji],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
