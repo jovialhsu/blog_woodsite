@@ -9,7 +9,7 @@ import styled from "styled-components"
 const Post = ({ frontmatter }) => {
   const { title, image, slug, date, category, excerpt } = frontmatter
 
-  console.log(frontmatter)
+  //console.log(frontmatter)
   return (
     <Wrapper>
       <Image fluid={image.childImageSharp.fluid} className="img" />
