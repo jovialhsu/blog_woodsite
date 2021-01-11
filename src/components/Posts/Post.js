@@ -1,12 +1,13 @@
 import React from "react"
 import Image from "gatsby-image"
+//import Image from "../image"
 import { FaRegClock } from "react-icons/fa"
 import { IoMdArrowRoundForward } from "react-icons/io"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-const Post = ({ frontmatter, excerpt }) => {
-  const { title, image, slug, date, category } = frontmatter
+const Post = ({ frontmatter }) => {
+  const { title, image, slug, date, category, excerpt } = frontmatter
 
   console.log(frontmatter)
   return (
@@ -17,7 +18,7 @@ const Post = ({ frontmatter, excerpt }) => {
         <h3>{title}</h3>
         <div className="underline"></div>
         <p>{excerpt}</p>
-        <Link to={`/posts/${slug}`} className="link">
+        <Link to={`/${slug}`} className="link">
           {" "}
           more <IoMdArrowRoundForward />
         </Link>
@@ -94,7 +95,7 @@ const Wrapper = styled.article`
     align-items: center;
     justify-content: space-between;
     color: var(--clr-grey-5);
-
+    background-color: transparent;
     & .date {
       display: flex;
       align-items: center;

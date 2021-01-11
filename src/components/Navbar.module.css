@@ -33,11 +33,17 @@
   font-size: 2rem;
   color: rgb(58, 124, 189);
   font-family: Helvetica, sans-serif;
-  font-weight: 900;
+  font-weight: 700;
   white-space: nowrap;
+}
+.navLogo:hover{
+  text-decoration: none;
 }
 .navLogo img {
   height: 100%;
+}
+.navLogo:hover span{
+      filter: drop-shadow(2px 1px 1px grey) brightness(120%);
 }
 .toggleBtn {
   font-size: 2rem;

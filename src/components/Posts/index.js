@@ -10,7 +10,7 @@ const Posts = ({ posts, title }) => {
         <article>
           {posts.map(post => {
             console.log(post.node)
-            return <Post key={post.node.id} {...post.node} />
+            return <Post key={post.id} {...post} />
           })}
         </article>
       </div>

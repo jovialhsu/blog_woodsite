@@ -9,12 +9,12 @@ const Links = ({ styleClass, children }) => {
           Home
         </Link>
       </li>
-      <li>
+      {/*  <li>
         <Link to="/tags" className={styles.pageLink}>
           tags
         </Link>
         {children}
-      </li>
+      </li>*/}
       <li>
         <Link to="/contact" className={styles.pageLink}>
           聯絡我
