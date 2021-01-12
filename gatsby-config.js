@@ -6,7 +6,7 @@ const emoji = require(`remark-emoji`)
 module.exports = {
   siteMetadata: {
     title: `Blog Woodsite`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `noob F2E engineer blog`,
     author: `@jovialhsu`,
     siteUrl: `https://hsu-web.com`,
   },
