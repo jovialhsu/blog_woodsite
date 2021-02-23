@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
       <PostLink key={edge.node.id} post={edge.node} />
     ))} */}
 
-      <Posts posts={posts} title="文章一覽" />
+      <Posts posts={posts} title="" />
     </Layout>
   )
 }
