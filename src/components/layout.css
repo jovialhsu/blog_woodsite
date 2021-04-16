@@ -95,7 +95,14 @@ footer {
   text-align: center;
 }
 footer > a {
-  color: #fff;
+  color: var(--clr-primary-9);
+}
+/* footer */
+.page-footer{
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 a {
   color: #222;
