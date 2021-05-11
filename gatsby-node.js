@@ -8,12 +8,9 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 exports.createPages = async ({ actions, graphql, reporter }) => {
-    const { createPage } = actions
-    
+    const { createPage } = actions  
     const blogPostTemplate = require.resolve(`./src/templates/blogTemplate.js`)
     const tagTemplate = require.resolve("./src/templates/tags.js")
-
-
     const result = await graphql(`
       {
         postsRemark: allMarkdownRemark(
@@ -93,4 +90,31 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+}
+exports.sourceNodes = async ({ actions }) => {
+  const { createNode } = actions
+  const res = await fetch(
+    `https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=8`
+  )
+
+  const data = await res.json()
+  data.map((movie, i) => {
+    const movieNode = {
+      // Required fields
+      id: `${i}`,
+      parent: `__SOURCE__`,
+      internal: {
+        type: `movieNode`, // name of the graphQL query --> allRandomUser {}
+        // contentDigest will be added just after
+        // but it is required
+      },
+      children: [],
+      uid: movie.UID,
+      masterUnit: movie.masterUnit,
+      showInfo: movie.showInfo,
+      description: movie.descriptionFilterHtml,
+      sourceWeb: movie.sourceWebPromote,
+      webSales: movie.webSales,
+    }
+  })
 }
