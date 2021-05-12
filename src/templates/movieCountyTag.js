@@ -21,7 +21,7 @@ export default function movieCountyTagPage({ pageContext, data }) {
                   <a href={node.webSales} target="_blank" rel="noreferrer">
                     <span
                       role="img"
-                      aria-labelledby="sale"
+                      aria-label="sale"
                       title={node.showInfo[0].price}
                     >
                       {" "}
@@ -30,7 +30,7 @@ export default function movieCountyTagPage({ pageContext, data }) {
                   </a>
                 ) :(<span
                 role="img"
-                aria-labelledby="sale"
+                aria-label="sale"
                 title={node.showInfo[0].price}
               >
                 {" "}
