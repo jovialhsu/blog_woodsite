@@ -117,6 +117,12 @@ a.tag {
   padding: 0.5em;
   color: #fff;
 }
+a.link {
+  font-style:italic;
+  font-size: 0.7rem;
+  padding: 0.5em;
+  color: #666;
+}
 a:active,
 a:hover {
   outline-width: 0;
@@ -898,4 +904,14 @@ Posts Component
     grid-template-columns: 1fr 250px;
     column-gap: 1rem;
   }
+}
+main{
+  padding: 0 2rem;
+}
+ul.tags{
+  display: flex;
+  flex-wrap: wrap;
+}
+ul.tags li{
+  margin: 1rem 0.5rem;
 }

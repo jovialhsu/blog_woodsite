@@ -20,6 +20,11 @@ const Links = ({ styleClass, children }) => {
           聯絡我
         </Link>
       </li>
+      <li>
+        <Link to="/movie" className={styles.pageLink}>
+          展覽電影一覽
+        </Link>
+      </li>
     </ul>
   )
 }
