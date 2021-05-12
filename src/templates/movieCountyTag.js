@@ -1,20 +1,23 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export default function movieCountyTagPage({ pageContext, data }) {
   const { edges } = data.allMovieNode
   const { tag } = pageContext
+  const header = `${tag}展覽電影一覽`
   return (
     <Layout>
+       <SEO title={header}/>
       <div>
         <h1>{tag}展覽電影一覽</h1>
         <ul>
           {edges.map(({ node }) => {
             return (
               <li key={node.id} title={node.description}>
-                <span>{node.showInfo[0].time}</span>
-                {node.showInfo[0].onSales === "Y" ? (
+                <div>{node.showInfo[0].time}</div>
+                {node.showInfo[0].onSales === "Y" ? node.webSales !== "" ? (
                   <a href={node.webSales} target="_blank" rel="noreferrer">
                     <span
                       role="img"
@@ -25,7 +28,15 @@ export default function movieCountyTagPage({ pageContext, data }) {
                       💲
                     </span>
                   </a>
-                ) : (
+                ) :(<span
+                role="img"
+                aria-labelledby="sale"
+                title={node.showInfo[0].price}
+              >
+                {" "}
+                💲
+              </span>) 
+              :(
                   ""
                 )}
                 <span title={node.showInfo[0].location}>
