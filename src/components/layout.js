@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Navbar from "./Navbar"
 import Sidebar from "./Sidebar"
 //import Header from "./header"
+import Footer from "./Footer"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -44,14 +45,7 @@ const Layout = ({ children }) => {
         <Sidebar open={open} toggle={toggleSidebar} />
         <main>{children}</main>
       </div>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        <span role="img" aria-label="lucky">
-          🍀
-        </span>
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <Footer />
     </>
   )
 }
