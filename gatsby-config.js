@@ -6,7 +6,7 @@ const emoji = require(`remark-emoji`)
 module.exports = {
   siteMetadata: {
     title: `Blog Woodsite`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `nooooob blog`,
     author: `@jovialhsu`,
     siteUrl: `https://hsu-web.com`,
   },
@@ -77,7 +77,7 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          process.env.GA_TRACKING_ID, // Google Analytics / GA
+          "UA-169925679-1", // Google Analytics / GA
           // process.env.AW_CONVERSION_ID, // Google Ads / Adwords / AW
           // process.env.DC_FLOODIGHT_ID, // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
