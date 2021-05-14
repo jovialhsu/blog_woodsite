@@ -832,27 +832,22 @@ Single Pages
 .error-page,
 .movie-page {
   min-height: calc(100vh - 7rem);
-  background: var(--clr-grey-10);
   padding: 2% 5%;
 }
 
 .contact-page,
 .success-page,
-.error-page,.movie-page {
-  /* //background: var(--clr-grey-10); */
+.error-page,
+.movie-page {
   display: grid;
   place-items: center;
   text-align: center;
 }
 .movie-page{
-  background: var(--clr-primary-9);
   place-items: flex-start;
   text-align: left;
 }
 /* error page */
-.error-page {
-  background: var(--clr-primary-10);
-}
 .error-page h3 {
   font-size: 5rem;
   color: var(--clr-black);
@@ -863,21 +858,62 @@ Single Pages
 }
 /* contact page */
 .contact-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  position: relative;
+  max-width: 550px;
+  margin: 0 auto;
 }
+.contact-form label{
+    position: absolute;
+    left: 1em;
+    margin-top: 30px;
+    color: #fff;
+    text-transform: capitalize;
+    transform-origin: left center;
+    transition: transform 0.25s ease-out, color 0.25s ease-out;
+}
+/* .contact-form label:first-child{
+  top: 30%;
+}
+.contact-form label:nth-child(2){
+  top: 35%;
+}
+.contact-form label:nth-child(3){
+  top: 60%;
+}
+.contact-form label:last-child{
+  top: 85%;
+} */
 .form-control {
-  padding: 0.5rem;
-  border: 0.5px solid var(--clr-grey-9);
-  border-right: transparent;
+  width: 100%;
+  left: 0;
+  border: 0;
+  background: #065cb720;
+  padding: 2em 1em 1em 1em;
+  color: #666;
+  font-size: 1em;
+  transition: background 0.35s ease-out;
   font-size: 1rem;
   margin: 0.25rem 0;
   border-radius: var(--radius);
-  display: block;
-  width: 20rem;
+}
+.form-control:placeholder-shown +label{
+  visibility: hidden;
+  z-index: -1;
+}
+.form-control::placeholder{
+  color: #333;
+}
+
+.form-control:not(:placeholder-shown)+ label,
+.form-control:focus:not(:placeholder-shown)+ label{
+  visibility: visible;
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(-10px) scale(0.8);
+  color: #3a5775;
+}
+.button{
+  margin-bottom: 2em;
 }
 /*
 ===============
