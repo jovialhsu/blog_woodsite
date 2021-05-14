@@ -10,8 +10,8 @@ export default function movieCountyTagPage({ pageContext, data }) {
   return (
     <Layout>
        <SEO title={header}/>
-      <div>
-        <h1>{tag}展覽電影一覽</h1>
+      <section class="movie-page">
+        <h1><span role="img" aria-label="sparkle">✨</span>{tag}展覽電影一覽</h1>
         <ul>
           {edges.map(({ node }) => {
             return (
@@ -52,8 +52,8 @@ export default function movieCountyTagPage({ pageContext, data }) {
             This links to a page that does not yet exist.
             You'll come back to it!
           */}
-        <Link to="/movie">看全部縣市</Link>
-      </div>
+        <Link to="/movie"><span role="img" aria-label="movie">🎬</span>看全部縣市</Link>
+      </section>
     </Layout>
   )
 }

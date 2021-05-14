@@ -12,7 +12,7 @@ const moviePage = ({
 }) => {
   return (
     <Layout>
-    <div>
+    <section class="movie-page">
       <div>
         <h1>展覽電影縣市一覽</h1>
         <ul className="tags">
@@ -30,7 +30,7 @@ const moviePage = ({
         </ul>
         <span><a className="link" href="https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=8">資料來源:文化部openData</a></span>
       </div>
-    </div>
+    </section>
   </Layout>
   )
 }
