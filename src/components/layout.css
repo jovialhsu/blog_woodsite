@@ -18,7 +18,7 @@ Variables
   --clr-primary-6: hsl(245, 57%, 50%);
   --clr-primary-7: hsl(245, 65%, 59%);
   --clr-primary-8: rgb(58, 124, 255);
-  --clr-primary-9: hsl(245, 94%, 87%);
+  --clr-primary-9: hsl(224, 87%, 85%);
   --clr-primary-10: hsl(222, 87%, 94%);
   /* darkest grey - used for headings */
   --clr-grey-1: hsl(209, 61%, 16%);
@@ -51,11 +51,8 @@ html {
 }
 body {
   margin: 0;
-  font-family:Merriweather, serif;
-  /* font-family: "Noto Sans", sans-serif; */
-  /* font-family: 'Roboto', sans-serif; */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 article,
 aside,
@@ -267,7 +264,6 @@ textarea {
 html {
   font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
-  overflow-y: scroll;
 }
 * {
   box-sizing: inherit;
@@ -280,7 +276,6 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  /* font-family: georgia, serif; */
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -310,7 +305,7 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -327,7 +322,7 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -344,7 +339,7 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -361,7 +356,7 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -378,7 +373,7 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -395,7 +390,7 @@ h6 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
@@ -423,7 +418,7 @@ ul {
   margin-bottom: 1.45rem;
   list-style-position: outside;
   list-style-image: none;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 ol {
@@ -834,17 +829,25 @@ Single Pages
 */
 .contact-page,
 .success-page,
-.error-page {
+.error-page,
+.movie-page {
   min-height: calc(100vh - 7rem);
   background: var(--clr-grey-10);
+  padding: 2% 5%;
 }
+
 .contact-page,
 .success-page,
-.error-page {
+.error-page,.movie-page {
   /* //background: var(--clr-grey-10); */
   display: grid;
   place-items: center;
   text-align: center;
+}
+.movie-page{
+  background: var(--clr-primary-9);
+  place-items: flex-start;
+  text-align: left;
 }
 /* error page */
 .error-page {
@@ -907,7 +910,10 @@ Posts Component
   }
 }
 main{
-  padding: 0 2rem;
+  min-height: 50vh;
+}
+main > div{
+  padding: 2% 5%;
 }
 ul.tags{
   display: flex;
