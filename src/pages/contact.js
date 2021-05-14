@@ -49,8 +49,8 @@ const ContactForm = () => (
             /> <label htmlFor="message">Message</label>
         
           <div className="button">
-            <FormButton type="submit">送出</FormButton>
             <FormButton type="reset">清除</FormButton>
+            <FormButton type="submit">送出</FormButton>
           </div>
         </form>
       </div>

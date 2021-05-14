@@ -4,13 +4,12 @@ import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 export default function Tags({ pageContext, data }) {
-  //const { frontmatter, html } = markdownRemark
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
-  //console.log(edges)
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
+  
   return (
     <Layout>
       <div>
@@ -18,10 +17,13 @@ export default function Tags({ pageContext, data }) {
         <ul>
           {edges.map(({ node }) => {
             const { slug } = node.frontmatter
+            const route =`/${ slug }`
             const { title } = node.frontmatter
             return (
               <li key={slug}>
-                <Link to={slug}>{title}</Link>
+                <Link to={route}>
+                  {title}
+                </Link>
               </li>
             )
           })}
