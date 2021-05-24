@@ -4,7 +4,7 @@ backend:
   repo: jovialhsu/blog_woodsite
 
 
-media_folder: src/images
+media_folder: content/blog/img
 public_folder: /img
 
 collections:

@@ -10,6 +10,7 @@ module.exports = {
     author: `@jovialhsu`,
     siteUrl: `https://hsu-web.com`,
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
@@ -27,7 +28,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/blog/img`,
       },
     },
     {
