@@ -12,7 +12,7 @@ const moviePage = ({
 }) => {
   return (
     <Layout>
-    <section class="movie-page">
+    <section className="movie-page">
       <div>
         <h1>展覽電影縣市一覽</h1>
         <ul className="tags">

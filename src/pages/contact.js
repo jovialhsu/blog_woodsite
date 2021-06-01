@@ -37,16 +37,16 @@ const ContactForm = () => (
               type="text"
               className="form-control"
               name="subject"
-              id="subject"
+              id="sub"
               placeholder="Subject!"
-            /> <label htmlFor="subject">Subject</label>
+            /><label htmlFor="sub">Subject</label>
             <textarea
               name="message"
               className="form-control"
               id="message"
               rows="5"
               placeholder="訊息內容"
-            /> <label htmlFor="message">Message</label>
+            /><label htmlFor="message">Message</label>
         
           <div className="button">
             <FormButton type="reset">清除</FormButton>
