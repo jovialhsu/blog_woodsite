@@ -30,7 +30,14 @@ export default function Template({
           </Link>
           {!isSSR && (
             <React.Suspense fallback={<div />}>
-              <Gitalk />
+            
+              <script src="https://utteranc.es/client.js"
+              repo="blog_woodsite"
+              issue-term="pathname"
+              theme="github-light"
+              crossorigin="anonymous"
+              async>
+        </script>
             </React.Suspense>
           )}
         </div>
