@@ -1,12 +1,9 @@
 import React from "react"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
-//import Image from "../components/image"
-
 import SEO from "../components/seo"
 //import PostLink from "../components/postLink"
 import Posts from "../components/Posts"
-import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
   const {
@@ -23,7 +20,7 @@ const IndexPage = ({ data }) => {
       <PostLink key={edge.node.id} post={edge.node} />
     ))} */}
 
-      <Posts posts={posts} title="文章一覽" />
+      <Posts posts={posts} title="" />
     </Layout>
   )
 }
@@ -63,7 +60,7 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               fluid {
-                ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid
               }
             }
           }

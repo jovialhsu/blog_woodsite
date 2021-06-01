@@ -1,42 +1,46 @@
 import React from "react"
 import Image from "gatsby-image"
-//import Image from "../image"
 import { FaRegClock } from "react-icons/fa"
-import { IoMdArrowRoundForward } from "react-icons/io"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Post = ({ frontmatter }) => {
   const { title, image, slug, date, category, excerpt } = frontmatter
-
-  //console.log(frontmatter)
   return (
     <Wrapper>
       <Image fluid={image.childImageSharp.fluid} className="img" />
       <div className="info">
         <span className="category">{category}</span>
-        <h3>{title}</h3>
-        <div className="underline"></div>
-        <p>{excerpt}</p>
-        <Link to={`/${slug}`} className="link">
-          {" "}
-          more <IoMdArrowRoundForward />
+        <Link to={`/${slug}`}>
+          <h3>{title}</h3>
         </Link>
-        <footer>
-          <span className="date">
-            <FaRegClock className="icon"></FaRegClock>
-            {date}
-          </span>
-        </footer>
+        <span className="date">
+          <FaRegClock className="icon"></FaRegClock>
+          {date}
+        </span>
+        {/** <div className="underline"></div>*/}
+        <p>
+          {excerpt}
+          <Link to={`/${slug}`}> ...more</Link>
+        </p>
+        <footer></footer>
       </div>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.article`
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   .info {
-    text-align: center;
+    text-align: left;
+  }
+  .info h3 {
+    display: inline-block;
+    padding-left: 0.5em;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #454;
   }
   .img {
     margin-bottom: 1rem;
@@ -45,9 +49,9 @@ const Wrapper = styled.article`
   }
   .category {
     display: inline-block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     background: var(--clr-grey-10);
-    padding: 0.25rem 0.5rem;
+    padding: 0.1rem 0.5rem;
     text-transform: uppercase;
     font-weight: 700;
     border-radius: var(--radius);
@@ -56,7 +60,7 @@ const Wrapper = styled.article`
   }
   h3 {
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-transform: initial;
   }
   .underline {
@@ -68,16 +72,13 @@ const Wrapper = styled.article`
   }
   p {
     color: var(--clr-grey-5);
-    line-height: 1.8;
+    line-height: 1.6;
   }
   .link {
     text-transform: uppercase;
-    letter-spacing: var(--spacing);
     font-weight: 700;
     color: var(--clr-primary-5);
     padding-bottom: 0.1rem;
-    display: flex;
-    align-items: center;
     svg {
       margin-left: 0.25rem;
       font-size: 1.2rem;
@@ -88,26 +89,29 @@ const Wrapper = styled.article`
     color: var(--clr-primary-8);
   }
   footer {
-    margin-top: 2rem;
-    padding-top: 1rem;
     border-top: 1px solid var(--clr-grey-9);
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: var(--clr-grey-5);
     background-color: transparent;
-    & .date {
-      display: flex;
-      align-items: center;
-      & .icon {
-        color: var(--clr-primary-5);
-        margin-right: 0.5rem;
-      }
+  }
+  .date {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1rem;
+    & .icon {
+      color: var(--clr-primary-5);
+      margin-right: 0.5rem;
     }
   }
   @media (min-width: 600px) {
     .img {
       height: 20rem;
+    }
+    h3 {
+      font-size: 2rem;
     }
   }
   @media (min-width: 800px) {
@@ -134,5 +138,4 @@ const Wrapper = styled.article`
     }
   }
 `
-
 export default Post

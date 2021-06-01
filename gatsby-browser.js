@@ -23,5 +23,5 @@
 //     </>
 //   )
 // }
-import { wrapRootElement as wrap } from "./root-wrapper"
-const wrapRootElement = wrap
+// import { wrapRootElement as wrap } from "./root-wrapper"
+// const wrapRootElement = wrap

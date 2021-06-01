@@ -6,11 +6,13 @@ const emoji = require(`remark-emoji`)
 module.exports = {
   siteMetadata: {
     title: `Blog Woodsite`,
-    description: `noob F2E engineer blog`,
+    description: `An experimental base for a noooob engineer to record living dairy and related notes`,
     author: `@jovialhsu`,
     siteUrl: `https://hsu-web.com`,
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
     `gatsby-plugin-netlify-cms`,
@@ -27,7 +29,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/blog/img`,
       },
     },
     {
@@ -43,8 +45,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `hsu-web`,
+        short_name: `starter-blog`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -63,6 +65,17 @@ module.exports = {
             tableName: "Books",
             mapping: { photo: `fileNode` },
           },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "UA-169925679-1", // Google Analytics / GA
+          // process.env.AW_CONVERSION_ID, // Google Ads / Adwords / AW
+          // process.env.DC_FLOODIGHT_ID, // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
       },
     },
