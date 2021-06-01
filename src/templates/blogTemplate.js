@@ -68,6 +68,7 @@ const Wrapper = styled.section`
   .post-info {
     margin: 2rem 0 4rem 0;
     text-align: left;
+    max-width: 1100px;
     span {
       color: var(--clr-white);
       border-radius: var(--radius);
@@ -88,6 +89,10 @@ const Wrapper = styled.section`
       background: var(--clr-grey-9);
       margin: 0 auto;
       margin-bottom: 1rem;
+    }
+    img{
+      max-width: 500px;
+      border-radius: 5px;
     }
     blockquote {
       background: var(--clr-grey-9);
