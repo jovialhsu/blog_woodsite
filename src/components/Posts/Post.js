@@ -1,6 +1,5 @@
 import React from "react"
 import Image from "gatsby-image"
-//import Image from "../image"
 import { FaRegClock } from "react-icons/fa"
 import { Link } from "gatsby"
 import styled from "styled-components"
@@ -139,5 +138,4 @@ const Wrapper = styled.article`
     }
   }
 `
-
 export default Post

@@ -10,7 +10,7 @@ export default function movieCountyTagPage({ pageContext, data }) {
   return (
     <Layout>
        <SEO title={header}/>
-      <section class="movie-page">
+      <section className="movie-page">
         <h1><span role="img" aria-label="sparkle">✨</span>{tag}展覽電影一覽</h1>
         <ul>
           {edges.map(({ node }) => {

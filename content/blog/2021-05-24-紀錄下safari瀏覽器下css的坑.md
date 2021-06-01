@@ -1,7 +1,7 @@
 ---
 slug: 2021-05-safari-bug
 title: 紀錄下safari瀏覽器下css的坑
-category: css
+category: html&css
 date: 2021-05-24T02:15:39.202Z
 excerpt: 自從IE宣告即將滅亡，處理畫面最多不一樣的細節當屬SAFARI，作為一個有蘋果相關產品但上班卻以WINDOWS為主，實在是對它又愛又恨，尤其在手機和電腦版還有很多落差！來記錄下幾項現在工作中遇到關於SAFARI神秘的坑，關關難過關關過，要記得下次不要再踩到就好😫。
 image: ./img/iswanto-arif-kxtmgheovdw-unsplash.jpg

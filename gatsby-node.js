@@ -35,6 +35,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             fieldValue
           }
         }
+        categories: allMarkdownRemark {
+          distinct(field: frontmatter___category) 
+        }
         countyGroup: allMovieNode(limit: 2000) {
           group(field: tag) {
             fieldValue
@@ -58,6 +61,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 slug: node.frontmatter.slug,
             },
         })
+    })
+    result.data.categories.distinct.forEach((category)=>{
+      createPage({
+        path:`/${category}`,
+        component:require.resolve(`./src/templates/category-template.js`),
+        context:{
+          category,
+        }
+      })
     })
     // Extract tag data from query
     const tags = result.data.tagsGroup.group
@@ -130,7 +142,7 @@ exports.sourceNodes = async ({ actions }) => {
           uid: movie.UID,
           masterUnit: movie.masterUnit,
           showInfo: movie.showInfo,
-          tag: movie.showInfo[0].location.slice(0, 3),
+          tag: movie.showInfo[0].location.trim().slice(0, 3),
           title: movie.title,
           description: movie.descriptionFilterHtml,
           sourceWeb: movie.sourceWebPromote,

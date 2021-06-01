@@ -6,12 +6,13 @@ const emoji = require(`remark-emoji`)
 module.exports = {
   siteMetadata: {
     title: `Blog Woodsite`,
-    description: `nooooob blog`,
+    description: `An experimental base for a noooob engineer to record living dairy and related notes`,
     author: `@jovialhsu`,
     siteUrl: `https://hsu-web.com`,
   },
   flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
     `gatsby-plugin-netlify-cms`,

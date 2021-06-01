@@ -929,9 +929,10 @@ Posts Component
 .posts-title {
   font-weight: 700;
   text-transform: uppercase;
-  color: #e12d39;
+  color: #8b151d;
   font-size: 1.25rem;
   margin-bottom: 2.5rem;
+  margin-top: 1.5rem;
 }
 @media screen and (min-width: 992px) {
   .posts {
