@@ -3,7 +3,8 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
-const Gitalk = React.lazy(() => import("../components/GitalkComponent"))
+const Comments = React.lazy(() => import("../components/Comments"))
+
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
@@ -24,21 +25,14 @@ export default function Template({
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </div>
-
-          <Link to="/" className="btn">
-            back home
-          </Link>
           {!isSSR && (
             <React.Suspense fallback={<div />}>
-            <div>
-              <script src="https://utteranc.es/client.js"
-              repo="jovialhsu/blog_woodsite"
-              issue-term="pathname"
-              theme="github-light"
-              crossOrigin="anonymous"
-              async></script></div>
+            <Comments />
             </React.Suspense>
           )}
+          <Link to="/" className="btn" title="back home">
+            回到首頁
+          </Link>
         </div>
       </Wrapper>
     </Layout>
