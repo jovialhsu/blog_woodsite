@@ -13,7 +13,11 @@ export default function Template({
   const isSSR = typeof window === "undefined"
   return (
     <Layout>
-      <SEO title={frontmatter.title} description={frontmatter.description} />
+      <SEO
+        lang="zh-Hant-TW"
+        title={frontmatter.title}
+        description={frontmatter.description}
+      />
       <Wrapper>
         <div className="post-info">
           <div className="blog-post">
@@ -27,7 +31,7 @@ export default function Template({
           </div>
           {!isSSR && (
             <React.Suspense fallback={<div />}>
-            <Comments />
+              <Comments />
             </React.Suspense>
           )}
           <Link to="/" className="btn" title="back home">
@@ -83,7 +87,7 @@ const Wrapper = styled.section`
       margin: 0 auto;
       margin-bottom: 1rem;
     }
-    img{
+    img {
       max-width: 500px;
       border-radius: 5px;
     }
