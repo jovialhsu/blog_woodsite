@@ -18,20 +18,25 @@ tags:
 ### 緣由
 
 這次有個需求是關於 autocomplete 的，在 email 的`input`輸入框，輸入到`@`時候，會跳出常用信箱供選擇，如下圖。
-![[./img/Pasted image 20210704151439.png]]
+![image:email-autocomplete](./img/Pasted image 20210704151439.png)
+
+---
+
 仔細查查果不其然，只要牽扯到輸入行爲，就要考慮很多相關事項，（還有很多花式自動提示更別提要和[瀏覽器作戰](https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion#preventing_autofilling_with_autocompletenew-password)），包括很多防呆或使用者體驗的項目，好像簡單的事情也變得不簡單了，關於無障礙我先裝死略過。
 
 ### 調查 survey
 
 因為是想要跨框架使用，主管希望可以寫純 JS，再度失去和 storybook 交手的機會，但我覺得框架自己刻一個還比較友善。
 所以就沒有去查 react 或 vue 的寫法。
-參考了以下：https://codepen.io/trevoreyre/pen/bvwOeL
-另外還有一個開源的方案也很不錯，github 上有 3000 多顆星。
-https://tarekraafat.github.io/autoComplete.js/#/
-svelte 版本：
-https://github.com/themarquisdesheric/simply-svelte-autocomplete/blob/master/src/Autocomplete.svelte
-jQuery UI 版本:
-https://jqueryui.com/autocomplete/
+參考了以下幾個：
+
+1.  https://codepen.io/trevoreyre/pen/bvwOeL
+2.  另外還有一個開源的方案也很不錯，github 上有 3000 多顆星。
+    https://tarekraafat.github.io/autoComplete.js/#/
+3.  svelte 版本：
+    https://github.com/themarquisdesheric/simply-svelte-autocomplete/blob/master/src/Autocomplete.svelte
+4.  jQuery UI 版本:
+    https://jqueryui.com/autocomplete/
 
 ### 碰到的一些小問題
 
