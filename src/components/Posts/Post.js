@@ -50,13 +50,13 @@ const Wrapper = styled.article`
   .category {
     display: inline-block;
     margin-bottom: 0.5rem;
-    background: var(--clr-grey-10);
+    background: var(--clr-grey-9);
     padding: 0.1rem 0.5rem;
     text-transform: uppercase;
     font-weight: 700;
     border-radius: var(--radius);
     letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
+    color: var(--clr-grey-4);
   }
   h3 {
     font-weight: 400;

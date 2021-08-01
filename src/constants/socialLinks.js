@@ -9,21 +9,21 @@ const SocialLinks = ({ styleClass }) => {
   return (
     <ul className={styleClass}>
       <li>
-        <a href="https://www.facebook.com/sinling.hsu/">
+        <a aria-label="facebook" href="https://www.facebook.com/sinling.hsu/">
           <FaFacebookSquare
             className={`${styles.socialIcon} ${styles.facebookIcon}`}
           ></FaFacebookSquare>
         </a>
       </li>
       <li>
-        <a href="https://github.com/jovialhsu">
+        <a aria-label="github" href="https://github.com/jovialhsu">
           <FaGithubSquare
             className={`${styles.socialIcon} ${styles.githubIcon}`}
           ></FaGithubSquare>
         </a>
       </li>
       <li>
-        <a href="https://twitter.com/jovial528">
+        <a aria-label="twitter" href="https://twitter.com/jovial528">
           <FaTwitterSquare
             className={`${styles.socialIcon} ${styles.twitterIcon}`}
           ></FaTwitterSquare>

@@ -14,7 +14,11 @@ const Navbar = ({ siteTitle, toggle }) => {
               {siteTitle}🌳
             </span>
           </Link>
-          <button className={styles.toggleBtn} onClick={toggle}>
+          <button
+            className={styles.toggleBtn}
+            aria-label="menu-button "
+            onClick={toggle}
+          >
             <FaBars />
           </button>
         </div>
