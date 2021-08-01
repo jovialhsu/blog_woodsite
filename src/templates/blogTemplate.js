@@ -78,7 +78,7 @@ const Wrapper = styled.section`
       font-weight: 700;
     }
     p {
-      color: var(--clr-grey-5);
+      color: var(--clr-grey-4);
     }
     .underline {
       width: 5rem;

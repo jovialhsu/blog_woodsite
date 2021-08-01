@@ -71,7 +71,7 @@ const Wrapper = styled.article`
     margin-bottom: 1rem;
   }
   p {
-    color: var(--clr-grey-5);
+    color: var(--clr-grey-4);
     line-height: 1.6;
   }
   .link {
