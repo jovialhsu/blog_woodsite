@@ -3,19 +3,20 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default function movieCountyTagPage({ pageContext, data }) {
-  const { edges } = data.allMovieNode
+export default function expoCountyTagPage({ pageContext, data }) {
+  console.log(data)
+  const { edges } = data.allExpoNode
   const { tag } = pageContext
-  const header = `${tag}電影一覽`
+  const header = `${tag}展覽一覽`
   return (
     <Layout>
       <SEO title={header} />
-      <section className="movie-page">
+      <section className="expo-page">
         <h1>
           <span role="img" aria-label="sparkle">
             ✨
           </span>
-          {tag}電影一覽
+          {tag}展覽一覽
         </h1>
         <ul>
           {edges.map(({ node }) => {
@@ -31,7 +32,6 @@ export default function movieCountyTagPage({ pageContext, data }) {
                         title={node.showInfo[0].price}
                       >
                         {" "}
-                        💲
                       </span>
                     </a>
                   ) : (
@@ -60,9 +60,9 @@ export default function movieCountyTagPage({ pageContext, data }) {
             This links to a page that does not yet exist.
             You'll come back to it!
           */}
-        <Link to="/movie">
-          <span role="img" aria-label="movie">
-            🎬
+        <Link to="/exhibition">
+          <span role="img" aria-label="expo">
+            🪐
           </span>
           看全部縣市
         </Link>
@@ -72,27 +72,20 @@ export default function movieCountyTagPage({ pageContext, data }) {
 }
 
 export const pageQuery = graphql`
-  query($tag: [String]) {
-    allMovieNode(
-      sort: { order: ASC, fields: showInfo___time }
-      filter: { tag: { in: $tag } }
-    ) {
+  {
+    allExpoNode(sort: { fields: start, order: ASC }) {
       edges {
         node {
-          id
-          masterUnit
-          tag
-          showInfo {
-            time
-            onSales
-            price
-            location
-            locationName
-          }
+          address
           description
-          sourceWeb
+          image
+          end
+          start
+          tag
           title
-          webSales
+          yearly
+          sourceWeb
+          masterUnit
         }
       }
     }
