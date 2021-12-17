@@ -4,7 +4,7 @@ import {
   FaGithubSquare,
   FaTwitterSquare,
 } from "react-icons/fa"
-import styles from "../components/Navbar.module.css"
+import * as styles from "../components/Navbar.module.css"
 const SocialLinks = ({ styleClass }) => {
   return (
     <ul className={styleClass}>

@@ -2,11 +2,11 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { FormButton } from "../components/Button"
 const ContactForm = () => (
   <Layout>
-    <SEO title="contact 📮" />
+    <Seo title="contact 📮" />
     <section className="contact-page">
       <div className="page-center">
         <h2>contact me</h2>

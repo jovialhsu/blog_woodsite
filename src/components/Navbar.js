@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { FaBars } from "react-icons/fa"
-import styles from "./Navbar.module.css"
+import * as styles from "./Navbar.module.css"
 import Links from "../constants/links"
 import SocialLinks from "../constants/socialLinks"
 const Navbar = ({ siteTitle, toggle }) => {

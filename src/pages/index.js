@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 //import PostLink from "../components/postLink"
 import Posts from "../components/Posts"
 
@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => {
   } = data
   return (
     <Layout>
-      <SEO title="Home" />
+      <Seo title="Home" />
       {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image src="gatsby-astronaut.png" />
       </div>*/}

@@ -12,7 +12,7 @@ const expoPage = ({ data }) => {
     <Layout>
       <section className="movie-page">
         <div>
-          <h1>展覽縣市一覽</h1>
+          <h1>展覽一覽</h1>
 
           {edges.map(expo => (
             <div className="expoCard" key={expo.node.id}>

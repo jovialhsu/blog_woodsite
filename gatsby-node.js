@@ -160,7 +160,7 @@ exports.sourceNodes = async ({ actions }) => {
       },
       children: [],
       uid: movie.UID,
-      masterUnit: movie.masterUnit,
+      masterUnit: movie.masterUnit[0],
       showInfo: movie.showInfo,
       tag: movie.showInfo[0].location.trim().slice(0, 3),
       title: movie.title,

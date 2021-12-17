@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 export default function expoCountyTagPage({ pageContext, data }) {
   console.log(data)
@@ -10,7 +10,7 @@ export default function expoCountyTagPage({ pageContext, data }) {
   const header = `${tag}展覽一覽`
   return (
     <Layout>
-      <SEO title={header} />
+      <Seo title={header} />
       <section className="expo-page">
         <h1>
           <span role="img" aria-label="sparkle">
