@@ -77,7 +77,6 @@ export default function movieCountyTagPage({ pageContext, data }) {
 export const pageQuery = graphql`
   query($tag: [String]) {
     allMovieNode(
-      sort: { order: ASC, fields: showInfo___time }
       filter: { tag: { in: $tag } }
     ) {
       edges {
@@ -85,17 +84,9 @@ export const pageQuery = graphql`
           id
           masterUnit
           tag
-          showInfo {
-            time
-            onSales
-            price
-            location
-            locationName
-          }
           description
           sourceWeb
           title
-          webSales
         }
       }
     }

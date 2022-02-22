@@ -139,7 +139,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 exports.sourceNodes = async ({ actions }) => {
-  const { createNode } = actions
+  const { createNode } = actions;
+  let node={}
   const res = await fetch(
     `https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=8`
   )
@@ -170,7 +171,8 @@ exports.sourceNodes = async ({ actions }) => {
     }
     const contentDigest = JSON.stringify(movieNode)
     movieNode.internal.contentDigest = contentDigest
-    createNode(movieNode)
+    // createNode(movieNode)
+    node = Object.assign(node,movieNode)
   })
   const expoData = await expoRes.json()
   expoData.map((expo, i) => {
@@ -202,7 +204,11 @@ exports.sourceNodes = async ({ actions }) => {
     }
     const contentDigest = JSON.stringify(expoNode)
     expoNode.internal.contentDigest = contentDigest
-    createNode(expoNode)
+    // createNode(expoNode)
+    node = Object.assign(node,expoNode)
   })
-  return
+  // const node = Object.assign({},movieNode,expoNode)
+  console.log(node)
+  createNode(node)
+  return 
 }
