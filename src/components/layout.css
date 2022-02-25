@@ -693,6 +693,16 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+.code{
+  background: #1e1e1e;
+  color: var(--clr-primary-5);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  overflow-x: scroll;
+  position: relative;  
+}
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

@@ -23,6 +23,7 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         remarkPlugins: [capitalize, emoji],
+        // extensions: [`.mdx`, `.md`],
       },
     },
     {

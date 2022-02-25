@@ -2,7 +2,7 @@
   "name": "blog-woodsite",
   "private": true,
   "description": "hsu-web",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "celia hsu<celia0528@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -14,7 +14,7 @@
     "gatsby-plugin-google-gtag": "^3.5.0",
     "gatsby-plugin-image": "^1.6.0",
     "gatsby-plugin-manifest": "^2.9.1",
-    "gatsby-plugin-mdx": "^1.8.0",
+    "gatsby-plugin-mdx": "^1.2.22",
     "gatsby-plugin-netlify-cms": "^4.7.0",
     "gatsby-plugin-offline": "^3.7.1",
     "gatsby-plugin-react-helmet": "^3.7.0",
