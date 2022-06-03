@@ -14,6 +14,7 @@ export default function movieCountyTagPage({ pageContext, data }) {
         <h1><span role="img" aria-label="sparkle">✨</span>{tag}展覽電影一覽</h1>
         <ul>
           {edges.map(({ node }) => {
+            console.log(node)
             return (
               <li key={node.id} title={node.description}>
                 <div>{node.showInfo[0].time}</div>

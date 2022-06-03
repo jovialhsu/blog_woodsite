@@ -127,6 +127,7 @@ exports.sourceNodes = async ({ actions }) => {
       `https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=8`
     )
     const data = await res.json()
+    console.log(data)
     data.map((movie, i) => {
         const movieNode = {
           // Required fields
@@ -153,4 +154,27 @@ exports.sourceNodes = async ({ actions }) => {
     createNode(movieNode)
   })
   return
+}
+exports.onCreateWebpackConfig = ({
+  stage,
+  rules,
+  plugins,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto'
+        }
+      ],
+    },
+    plugins: [
+      plugins.define({
+        __DEVELOPMENT__: stage === `develop` || stage === `develop-html`,
+      }),
+    ],
+  })
 }
