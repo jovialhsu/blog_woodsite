@@ -42,7 +42,24 @@ module.exports = {
     },
     { resolve: `gatsby-transformer-remark` },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 50,
+          breakpoints: [560, 1080, 1366, 1920],
+          backgroundColor: `transparent`,
+          tracedSVGOptions: {},
+          blurredOptions: {},
+          jpgOptions: {},
+          pngOptions: {},
+          webpOptions: {},
+          avifOptions: {},
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -78,21 +95,6 @@ module.exports = {
           // process.env.AW_CONVERSION_ID, // Google Ads / Adwords / AW
           // process.env.DC_FLOODIGHT_ID, // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
-      },
-    },
-    {
-      resolve: '@chakra-ui/gatsby-plugin',
-      options: {
-        /**
-         * @property {boolean} [resetCSS=true]
-         * if false, this plugin will not use `<CSSReset />
-         */
-        resetCSS: true,
-        /**
-         * @property {boolean} [isUsingColorMode=true]
-         * if false, this plugin will not use <ColorModeProvider />
-         */
-        isUsingColorMode: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
