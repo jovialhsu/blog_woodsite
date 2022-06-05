@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import styled from "styled-components"
 const Comments = React.lazy(() => import("../components/Comments"))
 
@@ -13,7 +13,7 @@ export default function Template({
   const isSSR = typeof window === "undefined"
   return (
     <Layout>
-      <SEO
+      <Seo
         lang="zh-Hant-TW"
         title={frontmatter.title}
         description={frontmatter.description}
