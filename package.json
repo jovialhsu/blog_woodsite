@@ -58,11 +58,12 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "npm run clean && npm install &&  gatsby build",
+    "build": "npm run install && npm run clean &&  gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "install": "npm install",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
