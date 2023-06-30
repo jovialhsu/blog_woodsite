@@ -51,8 +51,8 @@ html {
 }
 body {
   margin: 0;
-  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 article,
 aside,
@@ -94,7 +94,7 @@ footer > a {
   color: var(--clr-primary-9);
 }
 /* footer */
-.page-footer{
+.page-footer {
   height: 3.5rem;
   display: flex;
   align-items: center;
@@ -108,13 +108,13 @@ a {
 }
 a.tag {
   display: inline-block;
-  background-color: rgb(58, 58, 179);
-  border-radius: 20px;
+  color: rgb(58, 58, 179);
+  border: 2px dotted #abc;
+  border-radius: 10px;
   padding: 0.5em;
-  color: #fff;
 }
 a.link {
-  font-style:italic;
+  font-style: italic;
   font-size: 0.7rem;
   padding: 0.5em;
   color: #666;
@@ -275,7 +275,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
+  color: hsla(34, 34%, 5%, 0.8);
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -302,11 +302,11 @@ h1 {
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
-  padding-top: 0;
+  padding-top: 1rem;
   margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #222;
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
@@ -322,8 +322,8 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
@@ -339,8 +339,8 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
@@ -356,8 +356,8 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
@@ -373,8 +373,8 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
@@ -390,8 +390,8 @@ h6 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
@@ -418,8 +418,8 @@ ul {
   margin-bottom: 1.45rem;
   list-style-position: outside;
   list-style-image: none;
-  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, "微軟正黑體", Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 ol {
   margin-left: 1.45rem;
@@ -693,7 +693,7 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-.code{
+.code {
   background: #1e1e1e;
   color: var(--clr-primary-5);
   padding: 1rem 1.5rem;
@@ -701,7 +701,7 @@ pre tt:after {
   margin: 2rem 0;
   font-size: 1.2rem;
   overflow-x: scroll;
-  position: relative;  
+  position: relative;
 }
 @media only screen and (max-width: 480px) {
   html {
@@ -853,7 +853,7 @@ Single Pages
   place-items: center;
   text-align: center;
 }
-.movie-page{
+.movie-page {
   place-items: flex-start;
   text-align: left;
 }
@@ -872,14 +872,14 @@ Single Pages
   max-width: 550px;
   margin: 0 auto;
 }
-.contact-form label{
-    position: absolute;
-    left: 1em;
-    margin-top: 30px;
-    color: #fff;
-    text-transform: capitalize;
-    transform-origin: left center;
-    transition: transform 0.25s ease-out, color 0.25s ease-out;
+.contact-form label {
+  position: absolute;
+  left: 1em;
+  margin-top: 30px;
+  color: #fff;
+  text-transform: capitalize;
+  transform-origin: left center;
+  transition: transform 0.25s ease-out, color 0.25s ease-out;
 }
 /* .contact-form label:first-child{
   top: 30%;
@@ -906,23 +906,23 @@ Single Pages
   margin: 0.25rem 0;
   border-radius: var(--radius);
 }
-.form-control:placeholder-shown +label{
+.form-control:placeholder-shown + label {
   visibility: hidden;
   z-index: -1;
 }
-.form-control::placeholder{
+.form-control::placeholder {
   color: #333;
 }
 
-.form-control:not(:placeholder-shown)+ label,
-.form-control:focus:not(:placeholder-shown)+ label{
+.form-control:not(:placeholder-shown) + label,
+.form-control:focus:not(:placeholder-shown) + label {
   visibility: visible;
   z-index: 1;
   opacity: 1;
   transform: translateY(-10px) scale(0.8);
   color: #3a5775;
 }
-.button{
+.button {
   margin-bottom: 2em;
 }
 /*
@@ -956,16 +956,16 @@ Posts Component
     column-gap: 1rem;
   }
 }
-main{
+main {
   min-height: 50vh;
 }
-main > div{
+main > div {
   padding: 2% 5%;
 }
-ul.tags{
+ul.tags {
   display: flex;
   flex-wrap: wrap;
 }
-ul.tags li{
+ul.tags li {
   margin: 1rem 0.5rem;
 }
