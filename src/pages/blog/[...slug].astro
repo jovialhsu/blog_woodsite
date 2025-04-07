@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// 處理不同的日期格式
+const pubDate = entry.data.pubDate || entry.data.date;
+// 處理不同的圖片格式
+const image = entry.data.heroImage || entry.data.image;
+// 處理摘要
+const description = entry.data.description || entry.data.excerpt || '';
+---
+
+<BlogLayout 
+  title={entry.data.title}
+  pubDate={pubDate}
+  image={image}
+  description={description}
+  category={entry.data.category}
+  tags={entry.data.tags}
+>
+  <Content />
+</BlogLayout> 

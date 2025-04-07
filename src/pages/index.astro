@@ -1,0 +1,47 @@
+---
+// 導入 React 組件
+import YourReactComponent from '../components/YourReactComponent.jsx';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+// 獲取博客文章並按日期排序
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = a.data.pubDate || a.data.date || new Date();
+  const dateB = b.data.pubDate || b.data.date || new Date();
+  return dateB.valueOf() - dateA.valueOf();
+});
+---
+
+<BaseLayout title="我的部落格">
+  <h1>歡迎來到我的部落格</h1>
+  
+  <div class="post-grid">
+    {sortedPosts.map(post => {
+      const pubDate = post.data.pubDate || post.data.date;
+      const image = post.data.heroImage || post.data.image;
+      const description = post.data.description || post.data.excerpt || '';
+      
+      return (
+        <BlogCard
+          title={post.data.title}
+          url={`/blog/${post.slug}`}
+          image={image}
+          pubDate={pubDate}
+          description={description}
+          category={post.data.category}
+          tags={post.data.tags}
+        />
+      );
+    })}
+  </div>
+</BaseLayout>
+
+<style>
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+</style> 
