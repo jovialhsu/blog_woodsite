@@ -31,7 +31,7 @@ const posts = await getCollection('blog', post => post.data.category === categor
       <ul class="posts-list">
         {posts.map(post => (
           <li class="post-item">
-            <a href={`/blog/${post.slug}`}>
+            <a href={`/blog/${post.id}/`}>
               {(post.data.heroImage || post.data.image) && (
                 <img 
                   class="post-image" 
