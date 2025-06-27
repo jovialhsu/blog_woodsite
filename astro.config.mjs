@@ -9,4 +9,7 @@ export default defineConfig({
     site: 'https://example.com', // 請更新為您的實際網域
     integrations: [mdx(), sitemap(), react()],
     output: 'static', // 靜態網站生成
+    build: {
+        assets: '_astro'
+    }
 });
