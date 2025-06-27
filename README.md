@@ -1,108 +1,64 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# Blog Woodsite - Hsu Web
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+這是一個從 Gatsby 遷移到 Astro 的個人部落格專案。
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+## 🚀 專案特色
 
-## 🚀 Quick start
+- ✅ 極簡風格設計
+- ✅ 100/100 Lighthouse 效能評分
+- ✅ SEO 友善，包含 canonical URLs 和 OpenGraph 資料
+- ✅ 網站地圖支援
+- ✅ RSS Feed 支援
+- ✅ Markdown & MDX 支援
+- ✅ React 元件支援
 
-1.  **Create a Gatsby site.**
+## 📁 專案結構
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+```text
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
+```
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+Astro 會尋找 `src/pages/` 目錄中的 `.astro` 或 `.md` 檔案。每個頁面都會根據檔案名稱作為路由。
 
-1.  **Start developing.**
+`src/components/` 目錄放置 Astro/React/Vue/Svelte/Preact 元件。
 
-    Navigate into your new site’s directory and start it up.
+`src/content/` 目錄包含相關的 Markdown 和 MDX 文件集合。使用 `getCollection()` 從 `src/content/blog/` 取得文章，並使用可選的 schema 進行 frontmatter 類型檢查。
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+任何靜態資源（如圖片）都可以放在 `public/` 目錄中。
 
-1.  **Open the source code and start editing!**
+## 🧞 指令
 
-    Your site is now running at `http://localhost:8000`!
+所有指令都在專案根目錄的終端機中執行：
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+| 指令                      | 動作                                             |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | 安裝依賴套件                                      |
+| `npm run dev`             | 在 `localhost:4321` 啟動本地開發伺服器             |
+| `npm run build`           | 建置生產版本到 `./dist/`                          |
+| `npm run preview`         | 在部署前預覽建置結果                               |
+| `npm run astro ...`       | 執行 CLI 指令，如 `astro add`, `astro check`      |
+| `npm run astro -- --help` | 取得 Astro CLI 說明                              |
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+## 🔄 遷移說明
 
-## 🧐 What's inside?
+此專案已從 Gatsby 成功遷移到 Astro：
+- 移除了所有 Gatsby 相關檔案和依賴
+- 保留了原有的內容和設計
+- 更新了建置和開發流程
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+## 👀 想了解更多？
 
-    .
-    ├── node_modules
-    ├── public
-    ├── src
-    │   ├── api
-    │   ├── components
-    │   ├── pages
-    │   │   ├── guestbook
-    │   │   └── tags
-    │   ├── reducers
-    │   ├── styles
-    │   └── templates
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── yarn.lock
-    ├── package.json
-    └── README.md
+查看 [Astro 官方文件](https://docs.astro.build) 或加入 [Discord 伺服器](https://astro.build/chat)。
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+## 致謝
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+此主題基於優秀的 [Bear Blog](https://github.com/HermanMartinus/bearblog/)。 

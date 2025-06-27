@@ -1,33 +1,36 @@
 ---
-import { getCollection } from 'astro:content';
-import BlogLayout from '../../layouts/BlogLayout.astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import { render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+// 檢查是否為靜態資源請求（圖片、CSS、JS 等）
+const { slug } = Astro.params;
+const staticFileExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.css', '.js', '.ico', '.pdf', '.txt'];
+const isStaticFile = staticFileExtensions.some(ext => slug?.toLowerCase().includes(ext));
 
-// 處理不同的日期格式
-const pubDate = entry.data.pubDate || entry.data.date;
-// 處理不同的圖片格式
-const image = entry.data.heroImage || entry.data.image;
-// 處理摘要
-const description = entry.data.description || entry.data.excerpt || '';
+if (isStaticFile) {
+	// 對於靜態文件請求，返回 404
+	return new Response(null, { status: 404 });
+}
+
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+if (!post) {
+	return new Response(null, { status: 404 });
+}
+
+const { Content } = await render(post);
 ---
 
-<BlogLayout 
-  title={entry.data.title}
-  pubDate={pubDate}
-  image={image}
-  description={description}
-  category={entry.data.category}
-  tags={entry.data.tags}
->
-  <Content />
-</BlogLayout> 
+<BlogPost {...post.data}>
+	<Content />
+</BlogPost>

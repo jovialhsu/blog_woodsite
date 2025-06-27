@@ -1,47 +1,282 @@
 ---
-// 導入 React 組件
-import YourReactComponent from '../components/YourReactComponent.jsx';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import BlogCard from '../components/BlogCard.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 
-// 獲取博客文章並按日期排序
-const posts = await getCollection('blog');
-const sortedPosts = posts.sort((a, b) => {
-  const dateA = a.data.pubDate || a.data.date || new Date();
-  const dateB = b.data.pubDate || b.data.date || new Date();
-  return dateB.valueOf() - dateA.valueOf();
-});
+const posts = (await getCollection('blog')).sort(
+	(a, b) => {
+		const aDate = a.data?.pubDate || a.data?.date || new Date(0);
+		const bDate = b.data?.pubDate || b.data?.date || new Date(0);
+		return bDate.valueOf() - aDate.valueOf();
+	}
+);
+
+// 獲取所有分類
+const categories = [...new Set(posts.map(post => post.data.category))].filter(Boolean);
 ---
 
-<BaseLayout title="我的部落格">
-  <h1>歡迎來到我的部落格</h1>
-  
-  <div class="post-grid">
-    {sortedPosts.map(post => {
-      const pubDate = post.data.pubDate || post.data.date;
-      const image = post.data.heroImage || post.data.image;
-      const description = post.data.description || post.data.excerpt || '';
-      
-      return (
-        <BlogCard
-          title={post.data.title}
-          url={`/blog/${post.slug}`}
-          image={image}
-          pubDate={pubDate}
-          description={description}
-          category={post.data.category}
-          tags={post.data.tags}
-        />
-      );
-    })}
-  </div>
-</BaseLayout>
+<!doctype html>
+<html lang="zh-TW">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 1em;
+			}
+			
+			.welcome-section {
+				text-align: center;
+				margin-bottom: 3em;
+				padding: 2em 0;
+			}
+			
+			.welcome-section h1 {
+				font-size: 2.5rem;
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray-dark));
+			}
+			
+			.welcome-section p {
+				font-size: 1.2rem;
+				color: rgb(var(--gray));
+				max-width: 600px;
+				margin: 0 auto;
+			}
+			
+			.blog-section h2 {
+				font-size: 2rem;
+				margin-bottom: 1.5em;
+				text-align: center;
+				color: rgb(var(--gray-dark));
+			}
+			
+			.posts-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.post-card {
+				background: white;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+			
+			.post-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+			}
+			
+			.post-card a {
+				display: block;
+				text-decoration: none;
+				color: inherit;
+			}
+			
+			.post-image {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+			}
+			
+			.post-content {
+				padding: 1.5em;
+			}
+			
+			.post-title {
+				margin: 0 0 0.5em 0;
+				font-size: 1.25rem;
+				line-height: 1.3;
+				color: rgb(var(--gray-dark));
+			}
+			
+			.post-date {
+				margin: 0;
+				font-size: 0.9rem;
+				color: rgb(var(--gray));
+			}
+			
+			.post-excerpt {
+				margin: 0.5em 0 0 0;
+				font-size: 0.95rem;
+				color: rgb(var(--gray));
+				line-height: 1.5;
+			}
+			
+			.post-category {
+				display: inline-block;
+				background: rgb(var(--accent));
+				color: white;
+				padding: 0.25em 0.75em;
+				border-radius: 20px;
+				font-size: 0.8rem;
+				margin-bottom: 0.5em;
+			}
+			
+			/* 第一篇文章特殊樣式 */
+			.featured-post {
+				grid-column: 1 / -1;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+				align-items: center;
+			}
+			
+			.featured-post .post-image {
+				height: 300px;
+			}
+			
+			.featured-post .post-title {
+				font-size: 2rem;
+			}
+			
+			@media (max-width: 768px) {
+				.posts-grid {
+					grid-template-columns: 1fr;
+					gap: 1.5rem;
+				}
+				
+				.featured-post {
+					grid-template-columns: 1fr;
+					text-align: center;
+				}
+				
+				.featured-post .post-image {
+					height: 250px;
+				}
+				
+				.featured-post .post-title {
+					font-size: 1.5rem;
+				}
+				
+				.welcome-section h1 {
+					font-size: 2rem;
+				}
+			}
+			
+			.view-categories {
+				display: inline-block;
+				margin-top: 1rem;
+				padding: 0.5em 1em;
+				background-color: var(--theme-accent);
+				color: white;
+				text-decoration: none;
+				border-radius: 20px;
+				transition: background-color 0.2s ease;
+			}
 
-<style>
-  .post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-</style> 
+			.view-categories:hover {
+				background-color: var(--theme-accent-hover);
+			}
+
+			.categories-section {
+				margin: 3rem 0;
+				text-align: center;
+			}
+
+			.categories-section h2 {
+				font-size: 2rem;
+				margin-bottom: 1.5rem;
+				color: rgb(var(--gray-dark));
+			}
+
+			.categories-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				justify-content: center;
+			}
+
+			.category-link {
+				display: inline-block;
+				padding: 0.5em 1em;
+				background-color: var(--theme-elevated);
+				color: var(--theme-text);
+				text-decoration: none;
+				border-radius: 20px;
+				transition: all 0.2s ease;
+			}
+
+			.category-link:hover {
+				background-color: var(--theme-accent);
+				color: white;
+				transform: translateY(-2px);
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- 歡迎區塊 -->
+			<section class="welcome-section">
+				<h1>歡迎來到我的部落格</h1>
+				<p>分享生活、技術、閱讀與旅行的點點滴滴</p>
+			</section>
+
+			<!-- 分類區塊 -->
+			<section class="categories-section">
+				<h2>文章分類</h2>
+				<ul class="categories-list">
+					{categories.map(category => (
+						<li>
+							<a href={`/category/${category}`} class="category-link">{category}</a>
+						</li>
+					))}
+				</ul>
+			</section>
+			
+			<!-- 部落格文章區塊 -->
+			<section class="blog-section">
+				<h2>最新文章</h2>
+				<ul class="posts-grid">
+					{
+						posts.map((post, index) => (
+							<li class={index === 0 ? 'post-card featured-post' : 'post-card'}>
+								<a href={`/blog/${post.id}/`}>
+									{(post.data.heroImage || post.data.image) && (
+										<img 
+											class="post-image" 
+											src={post.data.heroImage || post.data.image} 
+											alt={post.data.title}
+											loading={index === 0 ? 'eager' : 'lazy'}
+										/>
+									)}
+									<div class="post-content">
+										{post.data.category && (
+											<span class="post-category">{post.data.category}</span>
+										)}
+										<h3 class="post-title">{post.data.title}</h3>
+										<p class="post-date">
+											<FormattedDate date={post.data.pubDate || post.data.date || new Date()} />
+										</p>
+										{(post.data.excerpt || post.data.description) && (
+											<p class="post-excerpt">
+												{post.data.excerpt || post.data.description}
+											</p>
+										)}
+									</div>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+	
+		<Footer />
+	</body>
+</html>
