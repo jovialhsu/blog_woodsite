@@ -128,13 +128,14 @@ const categories = [...new Set(posts.map(post => post.data.category))].filter(Bo
 			.featured-post {
 				grid-column: 1 / -1;
 				display: grid;
-				grid-template-columns: 1fr 1fr;
+				grid-template-columns: 1fr ;
 				gap: 2rem;
 				align-items: center;
 			}
 			
 			.featured-post .post-image {
-				height: 300px;
+				height: 500px;
+				width: 100%;
 			}
 			
 			.featured-post .post-title {
