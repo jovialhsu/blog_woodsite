@@ -1,0 +1,57 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="zh-TW">
+	<head>
+		<BaseHead title="訊息已送出 - {SITE_TITLE}" description="感謝您的訊息，我們會盡快回覆。" />
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 600px;
+				margin: 0 auto;
+				padding: 2em 1em;
+				text-align: center;
+			}
+			.success-icon {
+				font-size: 4rem;
+				color: #27ae60;
+				margin-bottom: 1rem;
+			}
+			.success-message {
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+				color: rgb(var(--gray-dark));
+			}
+			.back-link {
+				display: inline-block;
+				margin-top: 2em;
+				padding: 0.75em 2em;
+				background: rgb(var(--accent));
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
+				transition: background-color 0.2s;
+			}
+			.back-link:hover {
+				background: rgb(var(--accent-dark));
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="success-icon">✅</div>
+			<h1 class="success-message">訊息已成功送出！</h1>
+			<p>感謝您與我們聯絡。我們已收到您的訊息，會在 24-48 小時內回覆您。</p>
+			<p>如果您有緊急事項，請直接發送電子郵件至 <a href="mailto:celia0528@gmail.com">celia0528@gmail.com</a>。</p>
+			
+			<a href="/" class="back-link">回到首頁</a>
+		</main>
+		<Footer />
+	</body>
+</html> 

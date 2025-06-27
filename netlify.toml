@@ -1,0 +1,25 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20.11.0"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+# 處理 SPA 路由
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# 表單處理
+[forms]
+  # 啟用 Netlify Forms
+  
+# 身份驗證設定
+[identity]
+  # 啟用 Netlify Identity 

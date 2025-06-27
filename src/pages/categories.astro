@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+
+
+const posts = await getCollection('blog');
+const categories = [...new Set(posts.map(post => post.data.category))].filter(Boolean);
+---
+
+
+  <main>
+    <h1>文章分類</h1>
+    <ul class="categories">
+      {categories.map(category => (
+        <li>
+          <a href={`/category/${category}`} class="category">{category}</a>
+        </li>
+      ))}
+    </ul>
+  </main>
+
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  .categories {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .category {
+    display: inline-block;
+    padding: 0.25em 0.75em;
+    border-radius: 20px;
+    background-color: var(--theme-elevated);
+    color: var(--theme-text);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .category:hover {
+    background-color: var(--theme-accent);
+    color: var(--theme-bg);
+  }
+</style> 
